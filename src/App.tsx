@@ -7,31 +7,44 @@ import TextAnim from "./components/TextAnim";
 import Moth from "./components/Moth";
 import Bg from "./components/Bg";
 import BlinkStar from "./components/BlinkStar";
-import MothTwo from "./components/Moth2";
+import Calendar from "./components/Calendar";
+import { SparklesCore } from "./components/Sparkles";
+import ImagesGallery from "./components/ImagesGallery";
+import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 function App() {
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ["start start", "end start"]
+    });
+
+    useMotionValueEvent(scrollYProgress, "change", latest => {
+        console.log("Page scroll: ", latest);
+    });
     return (
-        <div className="relative overflow-hidden w-screen justify-center h-screen bg-grainy-bg bg-cover xl:bg-contain bg-no-repeat bg-center ">
-            <Tilt>
-                <div className="w-screen h-screen flex items-center justify-center flex-col z-50">
-                    {/* <img src={moleSrc} width={450} alt="cma" className="fill-amber-100 stroke-amber-300" /> */}
-                    <MothTwo />
-                    <TextAnim />
-                    <div className="flex gap-4 mt-4">
-                        <BlinkStar />
-                        <MediaLink href="https://www.instagram.com/patka_tattoos">
-                            <FaInstagramSquare />
-                        </MediaLink>
-                        <MediaLink href="https://www.facebook.com/profile.php?id=100088162022824">
-                            <FaFacebook />
-                        </MediaLink>
-                        <MediaLink href="mailto:patkaa.tattoos@gmail.com">
-                            <GoMail />
-                        </MediaLink>
-                        <BlinkStar />
-                    </div>
+        <div ref={container} className="relative overflow-hidden justify-center">
+            <div className="h-screen s bg-no-repeat bg-center bg-cover flex xl:bg-contain items-center justify-center flex-col z-50">
+                {/* <img src={moleSrc} width={450} alt="cma" className="fill-amber-100 stroke-amber-300" /> */}
+                <Moth />
+                <TextAnim />
+
+                <div className="flex gap-4 mt-4">
+                    <BlinkStar />
+                    <MediaLink href="https://www.instagram.com/patka_tattoos">
+                        <FaInstagramSquare />
+                    </MediaLink>
+                    <MediaLink href="https://www.facebook.com/profile.php?id=100088162022824">
+                        <FaFacebook />
+                    </MediaLink>
+                    <MediaLink href="mailto:patkaa.tattoos@gmail.com">
+                        <GoMail />
+                    </MediaLink>
+                    <BlinkStar />
                 </div>
-            </Tilt>
+            </div>
+            <ImagesGallery scrollYProgress={scrollYProgress} />
         </div>
     );
 }

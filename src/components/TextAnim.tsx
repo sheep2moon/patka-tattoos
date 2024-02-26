@@ -19,7 +19,7 @@ const TextAnim = () => {
     return (
         <div className="max-w-xs w-full my-4">
             <svg viewBox="0 0 807.302 150" xmlns="http://www.w3.org/2000/svg">
-                <g className="text-svg" id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#000" stroke-width="0.25mm" fill="none">
+                <g className="text-svg" id="svgGroup" strokeLinecap="round" fillRule="evenodd" fontSize="9pt" stroke="#000" strokeWidth="0.25mm" fill="none">
                     <path
                         d="M 0.15 150 L 0.15 139.8 L 9.45 139.8 L 9.45 47.85 L 0 47.85 L 0 37.5 L 21.75 37.5 L 21.75 54.6 L 47.7 38.25 Q 51.3 36 55.35 36 Q 59.4 36 62.475 38.475 A 7.987 7.987 0 0 1 65.303 43.218 A 12.302 12.302 0 0 1 65.55 45.75 L 65.55 98.4 A 38.358 38.358 0 0 1 65.432 101.533 Q 65.183 104.56 64.408 106.414 A 6.447 6.447 0 0 1 63.6 107.85 A 11.867 11.867 0 0 1 57.428 111.819 Q 55.036 112.5 52.05 112.5 L 21.75 112.5 L 21.75 139.8 L 31.65 139.8 L 31.65 150 L 0.15 150 Z M 21.75 66.6 L 21.75 102.3 L 53.55 102.3 L 53.55 46.65 L 21.75 66.6 Z"
                         id="0"
